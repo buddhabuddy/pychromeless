@@ -58,6 +58,9 @@ class WebDriverWrapper:
         elem_value = self._driver.find_element_by_xpath(xpath)
         return elem_value.get_attribute('innerHTML')
 
+    def get_html(self):
+        return self._driver.execute_script("return document.documentElement.outerHTML")
+
     def close(self):
         # Close webdriver connection
         self._driver.quit()
